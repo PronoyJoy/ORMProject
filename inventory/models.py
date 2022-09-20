@@ -1,4 +1,5 @@
 
+from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
@@ -46,6 +47,9 @@ class Inventory(models.Model):
     quantity = models.IntegerField()
     promotion_price = models.DecimalField(max_digits=5,decimal_places=2)
     promotion_is_active = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = 'Inventory'
 
     def __str__(self) -> str:
         return super().__str__(self.product_name)
